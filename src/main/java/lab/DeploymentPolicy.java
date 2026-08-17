@@ -1,13 +1,12 @@
 package lab;
 
-import java.util.Collections;
 import java.util.List;
 
 public final class DeploymentPolicy {
     private final List<String> approvedRegions;
 
     public DeploymentPolicy(List<String> approvedRegions) {
-        this.approvedRegions = Collections.unmodifiableList(approvedRegions);
+        this.approvedRegions = List.copyOf(approvedRegions);
     }
 
     public boolean permits(String region) {
